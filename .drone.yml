@@ -7,4 +7,11 @@ steps:
   image: python:3.8
   commands:
   - pip install -r requirements.txt
-  - docker build -t ryuneeee/finance:$(git log -1 --pretty=%h) .
+- name: build
+  image: plugins/docker
+  settings:
+    repo: ryuneeee/finance
+    username:
+      from_secret: docker_username
+    password:
+      from_secret: docker_password
