@@ -15,7 +15,7 @@ def price(ticker):
     return stock.price
 
 
-@app.route('/holdings/<ticker>')
+@app.route('/holdings2/<ticker>')
 def holders(ticker):
     stock = Ticker(ticker)
     return stock.fund_holding_info
