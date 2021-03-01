@@ -6,7 +6,7 @@ app = Flask(__name__)
 
 @app.route('/ping')
 def ping():
-    return "ok"
+    return "pong"
 
 
 @app.route('/price/<ticker>')
