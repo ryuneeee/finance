@@ -2,15 +2,16 @@ kind: pipeline
 type: kubernetes
 name: default
 
-steps:
-- name: tag
-  image: python:3.8
-  commands:
-    - echo $(git log -1 --pretty=%h) > .tags
+#steps:
+#- name: tag
+#  image: python:3.8
+#  commands:
+#    - echo $(git log -1 --pretty=%h) > .tags
 
 - name: build & publish
   image: plugins/docker
   settings:
+    tag: latest
     repo: ryuneeee/finance
     username:
       from_secret: DOCKER_HUB_USERNAME
