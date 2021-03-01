@@ -3,11 +3,15 @@ type: kubernetes
 name: default
 
 steps:
+- name: tag
+  image: python:3.8
+  commands:
+    - echo $(git log -1 --pretty=%h) > .tags
+
 - name: build & publish
   image: plugins/docker
   settings:
     repo: ryuneeee/finance
-    auto_tag: true
     username:
       from_secret: DOCKER_HUB_USERNAME
     password:
